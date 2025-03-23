@@ -1,0 +1,19 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /backup/
+Disallow: /notes/
+Disallow: /internal/
+Disallow: /dev/
+
+# SECURITY NOTE: 
+# The following directories contain sensitive information and
+# should not be accessible by web crawlers or unauthorized users
+#
+# - /admin/ : Contains administrative credentials and system access information
+# - /backup/ : Contains system and data backups
+# - /notes/ : Contains server configuration and security notes
+# - /internal/ : Internal company resources
+# - /dev/ : Development and testing resources
+#
+# TODO: Remove admin credentials file from /admin/ directory before production
+# TODO: Set up proper authentication for sensitive directories

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Success - Flag Found!{% endblock %}
+
+{% block content %}
+<article class="grid">
+    <div>
+        <hgroup>
+            <h1>Success!</h1>
+            <h2>Congratulations on finding the vulnerability!</h2>
+        </hgroup>
+        <div class="flag-container">
+            <p>Here's your flag:</p>
+            <kbd>{{ flag }}</kbd>
+            <p><small>Nice work on bypassing the 2FA!</small></p>
+        </div>
+        <footer>
+            <a href="{{ url_for('index') }}" role="button" class="secondary">Back to Home</a>
+        </footer>
+    </div>
+</article>
+{% endblock %}

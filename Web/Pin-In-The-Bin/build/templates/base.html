@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>{% block title %}CTF Challenge{% endblock %}</title>
+    
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml;utf8,
+        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'>
+          <rect width='16' height='16' fill='%23007acc'/>
+          <text x='4' y='12' font-size='12' fill='white'>p</text>
+        </svg>"
+    />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <ul>
+                <li><strong><a href="{{ url_for('index') }}" class="contrast">SecureAuth</a></strong></li>
+            </ul>
+            <ul>
+                <li>
+                    
+                </li>
+            <ul>
+                <li>
+                    <details role="list" dir="rtl">
+                        <summary aria-haspopup="listbox" role="button" class="secondary">Theme</summary>
+                        <ul role="listbox">
+                            <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                            <li><a href="#" data-theme-switcher="light">Light</a></li>
+                            <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+                        </ul>
+                    </details>
+                </li>
+                {% if session.get('user_email') %}
+                <li><a href="{{ url_for('logout') }}" role="button" class="outline">Logout</a></li>
+                {% else %}
+                <li><a href="{{ url_for('login') }}" role="button" class="outline">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <article class="notice {{ category }}">
+                        {{ message }}
+                    </article>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        {% block content %}{% endblock %}
+    </main>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

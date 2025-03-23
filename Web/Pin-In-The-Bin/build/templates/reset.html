@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Reset Password - SecureAuth{% endblock %}
+
+{% block content %}
+<article class="grid">
+    <div>
+        <hgroup>
+            <h1>Reset Password</h1>
+            <h2>Enter your 4-digit security PIN</h2>
+        </hgroup>
+        <form action="{{ url_for('check_pin') }}" method="POST">
+            <input type="text" name="pin" placeholder="Enter 4-digit PIN" pattern="\d{4}" required>
+            <button type="submit">Verify PIN</button>
+        </form>
+        <footer>
+            <p>
+                <a href="{{ url_for('login') }}" class="secondary">Back to Login</a>
+            </p>
+        </footer>
+    </div>
+</article>
+{% endblock %}

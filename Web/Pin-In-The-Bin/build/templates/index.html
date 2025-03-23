@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Secure Login System - CTF Challenge{% endblock %}
+
+{% block content %}
+<article class="grid">
+    <div class="headings">
+        <hgroup>
+            <h1>Welcome to SecureAuth</h1>
+            <h2>A totally secure authentication system</h2>
+        </hgroup>
+        <p>This system uses state-of-the-art security measures including a revolutionary 2FA system.</p>
+        <a href="{{ url_for('login') }}" role="button">Login Now</a>
+    </div>
+</article>
+{% endblock %}

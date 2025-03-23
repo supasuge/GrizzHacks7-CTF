@@ -1,0 +1,233 @@
+/* Navbar Styles */
+.navbar {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--pico-form-element-border-color);
+    margin-bottom: 2rem;
+    background: var(--pico-form-element-background-color);
+}
+
+.container-fluid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar details[role="list"] {
+    margin: 0;
+}
+
+.navbar details[role="list"] ul {
+    min-width: 120px;
+}
+
+/* Theme Switcher Styles */
+[data-theme-switcher].active {
+    background-color: var(--pico-primary);
+    color: var(--pico-primary-inverse);
+}
+:root {
+    --pico-spacing: 1.5rem;
+    --pico-border-radius: 0.5rem;
+    --pico-font-weight: 400;
+    --pico-typography-spacing-vertical: 1.5rem;
+}
+
+/* Light mode customization */
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+    --pico-background-color: #f4f7fb;
+    --pico-form-element-border-color: #d1d5db;
+    --pico-form-element-background-color: #ffffff;
+}
+
+/* Dark mode customization */
+@media only screen and (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        --pico-background-color: #111827;
+        --pico-form-element-border-color: #4b5563;
+        --pico-form-element-background-color: #1f2937;
+    }
+}
+
+/* Layout */
+.grid {
+    padding: 2rem;
+    border-radius: var(--pico-border-radius);
+    background: var(--pico-form-element-background-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Typography */
+h1 {
+    --pico-font-weight: 700;
+    color: var(--pico-primary);
+}
+
+h2 {
+    --pico-font-size: 1.1rem;
+    --pico-font-weight: 400;
+    color: var(--pico-muted-color);
+}
+
+/* Forms */
+input {
+    margin-bottom: 1rem !important;
+}
+
+/* Notice/Flash Messages */
+.notice {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: var(--pico-border-radius);
+}
+
+.error {
+    background-color: var(--pico-form-element-invalid-background-color);
+    border-color: var(--pico-form-element-invalid-border-color);
+    color: var(--pico-form-element-invalid-active-border-color);
+}
+
+/* Flag Container */
+.flag-container {
+    background: var(--pico-background-color);
+    padding: 2rem;
+    border-radius: var(--pico-border-radius);
+    margin: 2rem 0;
+    border: 2px solid var(--pico-primary);
+    text-align: center;
+}
+
+kbd {
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: var(--pico-primary);
+    color: white;
+    border: none;
+    border-radius: var(--pico-border-radius);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    font-family: var(--pico-font-family-monospace);
+    letter-spacing: 0.05em;
+}
+
+/* Buttons */
+[role="button"].secondary,
+a.secondary {
+    --pico-background-color: transparent;
+    --pico-border-color: transparent;
+    --pico-color: var(--pico-muted-color);
+}
+
+/* Form Validation States */
+input.invalid {
+    --pico-form-element-border-color: var(--pico-form-element-invalid-border-color);
+    --pico-form-element-background-color: var(--pico-form-element-invalid-background-color);
+    animation: shake 0.3s ease-in-out;
+}
+
+input.complete {
+    --pico-form-element-border-color: var(--pico-form-element-valid-border-color);
+    --pico-form-element-background-color: var(--pico-form-element-valid-background-color);
+    transition: all 0.3s ease;
+}
+
+/* Error Message Animation */
+.error-message {
+    display: block;
+    margin-top: -0.75rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Animations */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading States */
+[aria-busy="true"] {
+    position: relative;
+}
+
+[aria-busy="true"]::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 0.5em);
+    right: 0.5em;
+    width: 1em;
+    height: 1em;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-right-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Container width */
+.container {
+    max-width: 50rem;  /* Increased from 35rem */
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Challenge specific styles */
+.mission-details .code-block {
+    background: var(--pico-background-color);
+    padding: 1.5rem;
+    border-radius: var(--pico-border-radius);
+    font-size: 1.1rem;
+    margin: 1rem 0;
+}
+
+.helper-text pre {
+    font-size: 0.9rem;
+}
+
+/* Form improvements */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+}

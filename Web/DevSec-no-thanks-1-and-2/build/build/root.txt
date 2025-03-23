@@ -1,0 +1,1 @@
+GrizzCTF{DevSec_Inf0S3c_00ps13_pwn3d_n01c3}

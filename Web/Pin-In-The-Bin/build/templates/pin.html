@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}PIN Verification - SecureAuth{% endblock %}
+
+{% block content %}
+<article class="grid">
+    <div>
+        <hgroup>
+            <h1>Enter Security PIN</h1>
+            <h2>Check your email for the 4-digit security PIN</h2>
+        </hgroup>
+        
+        <form method="POST" action="{{ url_for('verify_pin') }}">
+            {{ form.csrf_token }}
+            <div class="form-group">
+                {{ form.pin.label }}
+                {{ form.pin(class="form-control", placeholder="Enter 4-digit PIN", autocomplete="off") }}
+                {% if form.pin.errors %}
+                    {% for error in form.pin.errors %}
+                        <small class="error-message">{{ error }}</small>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            {{ form.submit(class="primary") }}
+        </form>
+        
+        <footer>
+            <p>
+                <a href="{{ url_for('forgot_password') }}" class="secondary">Request New PIN</a>
+            </p>
+        </footer>
+    </div>
+</article>
+{% endblock %}

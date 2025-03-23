@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}Proof of Work Challenge{% endblock %}
+
+{% block content %}
+<article class="grid">
+    <div>
+        <hgroup>
+            <h1>Proof of Work Challenge</h1>
+            <h2>Why did the CPU go to the doctor? Because it had a bad case of the POWs!</h2>
+        </hgroup>
+
+        <div class="challenge-info">
+            <div class="mission-details">
+                <h3>🎯 Your Mission</h3>
+                <p>Find a solution <code>x</code> such that:</p>
+                <div class="code-block">
+                    <code>sha256("{{ challenge }}" + x)</code> starts with <code>{{ "0" * difficulty }}</code>
+                </div>
+            </div>
+
+            <div class="challenge-data">
+                <h3>🔍 Challenge Details</h3>
+                <ul>
+                    <li><strong>Challenge String:</strong> <code>{{ challenge }}</code></li>
+                    <li><strong>Required Leading Zeros:</strong> <code>{{ difficulty }}</code></li>
+                    <li><strong>Solution Format:</strong> 8 characters from Charset: [a-zA-Z0-9]</li>
+
+                </ul>
+            </div>
+
+            <form method="POST" action="{{ url_for('pow_challenge') }}" class="pow-form">
+                {{ form.csrf_token }}
+                <div class="form-group">
+                    {{ form.solution.label(class_="form-label") }}
+                    {{ form.solution(class_="form-control", placeholder="Enter your solution here...", autocomplete="off") }}
+                    {% if form.solution.errors %}
+                        {% for error in form.solution.errors %}
+                            <small class="error-message">{{ error }}</small>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                {{ form.submit(class_="primary") }}
+            </form>
+
+            <details class="helper-section">
+                <summary>💡 Need Help?</summary>
+                <div class="helper-content">
+                    <h4>Python Solution Script</h4>
+                    <div class="code-block">
+                        <pre><code>#!/usr/bin/python3
+import hashlib
+import string
+import random
+import time
+
+def solve_pow():
+    challenge = "{{ challenge }}"
+    charset = "abcdefghijklmnopqrstuvwxyz0123456789"
+    target = "0" * {{ difficulty }}
+    
+    start_time = time.time()
+    attempts = 0
+    
+    while True:
+        # Generate random 8-char solution
+        solution = ''.join(random.choices(charset, k=8))
+        attempts += 1
+        
+        # Calculate hash
+        h = hashlib.sha256(
+            (challenge + solution).encode()
+        ).hexdigest()
+        
+        # Check if valid
+        if h.startswith(target):
+            end_time = time.time()
+            print(f"Found solution: {solution}")
+            print(f"Hash: {h}")
+            print(f"Attempts: {attempts}")
+            print(f"Time: {end_time - start_time:.2f}s")
+            return solution
+            
+solve_pow()</code></pre>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+</article>
+
+<style>
+.challenge-info {
+    background: var(--pico-background-color);
+    padding: 2rem;
+    border-radius: var(--pico-border-radius);
+    margin: 2rem 0;
+}
+
+.mission-details {
+    margin-bottom: 2rem;
+}
+
+.code-block {
+    background: var(--pico-form-element-background-color);
+    padding: 1rem;
+    border-radius: var(--pico-border-radius);
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+
+.code-block code {
+    word-break: break-all;
+    font-family: var(--pico-font-family-monospace);
+}
+
+.challenge-data {
+    background: var(--pico-form-element-background-color);
+    padding: 1.5rem;
+    border-radius: var(--pico-border-radius);
+    margin: 1.5rem 0;
+}
+
+.challenge-data ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.challenge-data li {
+    margin: 0.5rem 0;
+}
+
+.pow-form {
+    margin: 2rem 0;
+}
+
+.helper-section {
+    margin-top: 2rem;
+}
+
+.helper-content {
+    padding: 1.5rem;
+    background: var(--pico-form-element-background-color);
+    border-radius: var(--pico-border-radius);
+    margin-top: 1rem;
+}
+
+.helper-content pre {
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+</style>
+{% endblock %}
