@@ -1,0 +1,15 @@
+[+] XOR Madness Challenge Results:
+[+] k1 = ca3212184af232b94354810c488b6cae1db021649a82006dbf203928f3
+[+] k1 ^ k2 = 26e0bb36c7c266cdc83bb77d51f3001a977eae875c58c9b8e24a6260ae
+[+] k2 ^ k3 = b94a52e2f498e74d08f5cc729870a8ee5be14fe55723abd09cf0e30c68
+[+] k3 ^ k4 = bf86e55fefb64b8749ecf3e6b11f6bd057c7ecb0ba7985602249570100
+[+] k4 ^ k1 = 202c0c8bdcecca07892288e9789cc3249b580dd2b102e7085cf3d66dc6
+[+] k2 ^ k4 = 06ccb7bd1b2eacca41193f94296fc33e0c26a355ed5a2eb0beb9b40d68
+[+] FLAG ^ k1 ^ k2 ^ k3 ^ k4 = de1437135237790cfa8f74e992855bb89fce764594107caa9f654116d3
+
+*************************************************
+*                                               *
+*         Good luck! Don't forget about         *
+*         the properties of XOR.                *
+*************************************************
+

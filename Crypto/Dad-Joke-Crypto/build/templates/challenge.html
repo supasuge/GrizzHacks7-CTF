@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}The Challenge - Dad Joke Crypto{% endblock %}
+{% block page_title %}The Cryptographic Challenge{% endblock %}
+
+{% block content %}
+<div class="challenge-section">
+    <div class="intro-card">
+        <i class="fas fa-puzzle-piece fa-3x"></i>
+        <h2>Ready to Crack Some Jokes?</h2>
+        <p>Why did the cryptographer bring a ladder to work? Because they heard the security was going to be stepped up!</p>
+    </div>
+
+    <div class="api-info">
+        <h3><i class="fas fa-code"></i> API Endpoint</h3>
+        <p>Access the challenge parameters via:</p>
+        <div class="endpoint-box">
+            {% set cmd = "curl -X GET " + url_for('challenge_route', _external=True) + " -H 'Accept: application/json' -H 'Content-Type: application/json' -b 'session=YOUR_SESSION_COOKIE_HERE'" %}
+            <code>{{ cmd }}</code>
+            <button class="copy-btn" onclick="copyToClipboard('cmd')">
+                <i class="fas fa-copy"></i>
+            </button>
+        </div>
+        <p class="tip">Pro tip: Set your Accept header to <code>application/json</code> for JSON response!</p>
+    </div>
+
+    {% if params %}
+    <div class="parameters-section">
+        <h3><i class="fas fa-cogs"></i> Current Parameters</h3>
+        <pre class="json-display"><code>{{ params | tojson(indent=2) }}</code></pre>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

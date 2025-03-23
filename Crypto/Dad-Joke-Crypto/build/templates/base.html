@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Dad Joke Cryptosystem{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+
+</head>
+<body>
+    <div class="loading-screen">
+        <div class="spinner"></div>
+        <p>Loading dad jokes... (they're not that bad, promise!)</p>
+    </div>
+
+    <header class="site-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <i class="fas fa-laugh-squint"></i>
+                <span>Dad Joke Crypto</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/pow" class="nav-link"><i class="fas fa-cogs"></i> PoW</a></li>
+                <li><a href="/challenge" class="nav-link"><i class="fas fa-puzzle-piece"></i> Challenge</a></li>
+                <li><a href="/flag" class="nav-link"><i class="fas fa-flag"></i> Flag</a></li>
+            </ul>
+        </nav>
+        <div class="dad-joke-banner" id="randomDadJoke">
+            <!-- Random dad joke will be inserted here via JavaScript -->
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="content-wrapper">
+            <h1 class="page-title">{% block page_title %}{% endblock %}</h1>
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-shield-alt"></i> Security Notice</h3>
+                <p>This cryptosystem is for educational purposes only. Please don't use dad jokes for real encryption!</p>
+            </div>
+            <div class="footer-section">
+                <h3><i class="fas fa-code"></i> Challenge Info</h3>
+                <p>Part of GrizzCTF 2024</p>
+                <p>Difficulty: Medium</p>
+                <p>Category: Cryptography</p>
+            </div>
+            <div class="footer-section">
+                <h3><i class="fas fa-lightbulb"></i> Hint of the Day</h3>
+                <p id="dailyHint">Why did the private key feel lonely? Because it never got to meet its prime factors!</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>┬⌐2024 Dad Joke Security Corp. | Making Cryptography Fun, One Dad Joke at a Time</p>
+        </div>
+    </footer>
+
+    <div id="notification" class="notification hidden">
+        <i class="fas fa-info-circle"></i>
+        <span id="notification-text"></span>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

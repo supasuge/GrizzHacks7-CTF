@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  vigenere:
+    build: .
+    ports:
+      - "7474:7474"
+    restart: unless-stopped
+    volumes:
+      - ./message.txt:/app/message.txt:ro
+    
+    

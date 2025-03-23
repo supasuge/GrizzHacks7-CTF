@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Encrypted Flag{% endblock %}
+
+{% block page_title %}The Encrypted Flag{% endblock %}
+
+{% block content %}
+<div class="flag-section">
+    <div class="intro-card">
+        <i class="fas fa-flag fa-3x"></i>
+        <h2>Almost There!</h2>
+        <p>Why did the flag feel safe? Because it was encrypted with dad-grade security!</p>
+    </div>
+
+    <div class="flag-container">
+        <h3><i class="fas fa-lock"></i> Your Encrypted Flag</h3>
+        <pre class="ciphertext">{{ ciphertext }}</pre>
+    </div>
+
+    <div class="hint-box">
+        <h3><i class="fas fa-lightbulb"></i> Need a Hint?</h3>
+        <p>Factorizing this challenge might make you "crack up"!</p>
+        <p class="small-text">(Get it? Factor... cracks... I'll see myself out.)</p>
+    </div>
+
+    <div class="encouragement">
+        <p><i class="fas fa-star"></i> Remember: The best cryptographers always keep their sense of humor!</p>
+    </div>
+</div>
+{% endblock %}

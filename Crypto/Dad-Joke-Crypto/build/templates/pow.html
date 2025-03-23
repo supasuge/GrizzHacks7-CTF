@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Proof of Work Challenge{% endblock %}
+
+{% block page_title %}Prove Your Worth (of Work){% endblock %}
+
+{% block content %}
+<div class="pow-challenge">
+    <div class="challenge-intro">
+        <p class="lead-text">
+            <i class="fas fa-cog fa-spin"></i>
+            Why did the CPU go to the doctor? Because it had a bad case of the POWs!
+        </p>
+    </div>
+
+    <div class="challenge-details">
+        <h3><i class="fas fa-tasks"></i> Your Mission</h3>
+        <p>Find <code>x</code> such that:</p>
+        <div class="code-highlight">
+            <code>sha256("{{ challenge }}"+x)</code> starts with <code>0000</code>
+        </div>
+    </div>
+
+    <form method="POST" action="/pow" class="pow-form">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <label for="solution"><i class="fas fa-key"></i> Enter Solution:</label>
+            <input type="text" name="solution" id="solution" required placeholder="Your solution here...">
+        </div>
+        <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Submit Solution
+        </button>
+    </form>
+
+    {% if error %}
+    <div class="error-message">
+        <i class="fas fa-exclamation-circle"></i>
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <div class="helper-section">
+        <h3><i class="fas fa-code"></i> Example Solution Code</h3>
+        <p>Here's a Python script to help you solve this challenge:</p>
+        <div class="code-container">
+            <pre><code>
+#!/usr/bin/python3
+import hashlib
+import string
+import itertools
+import time
+
+challenge: str = "{{ challenge }}"
+charset = string.ascii_lowercase + string.digits
+
+for length in range(1, 10):
+    start_time: float = time.time()
+    for candidate in itertools.product(charset, repeat=length):
+        x = ''.join(candidate)
+        h = hashlib.sha256((challenge + x).encode()).hexdigest()
+        if h.startswith('0000'):
+            end_time: float = time.time()
+            total_time: float = end_time - start_time
+            print(f"Found solution!\nSubmit {x} for access to the challenge endpoints.")
+            print(f"Hash: {h}")
+            print(f"Good luck!")
+            print(f"Time taken: {total_time:.2f} seconds")
+            exit(0)
+            </code></pre>
+        </div>
+    </div>
+</div>
+{% endblock %}

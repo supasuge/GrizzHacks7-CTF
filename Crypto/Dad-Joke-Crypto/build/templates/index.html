@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Factor This Joke - Home{% endblock %}
+
+{% block page_title %}Welcome to the Dad Joke Cryptosystem{% endblock %}
+
+{% block content %}
+<div class="welcome-section">
+    <p class="lead-text">
+        <i class="fas fa-quote-left"></i>
+        Why did the cryptographer start telling dad jokes? Because all their other jokes were encrypted!
+        <i class="fas fa-quote-right"></i>
+    </p>
+    
+    <div class="feature-grid">
+        <div class="feature-card">
+            <i class="fas fa-lock"></i>
+            <h3>Step 1: Proof of Work</h3>
+            <p>Start by solving our <a href="/pow">PoW challenge</a>. It's like a knock-knock joke - you need the right response to get in!</p>
+        </div>
+        
+        <div class="feature-card">
+            <i class="fas fa-puzzle-piece"></i>
+            <h3>Step 2: The Challenge</h3>
+            <p>Access the <a href="/challenge">challenge parameters</a> and put your cryptographic skills to the test.</p>
+        </div>
+        
+        <div class="feature-card">
+            <i class="fas fa-flag"></i>
+            <h3>Step 3: Capture the Flag</h3>
+            <p>Decrypt our <a href="/flag">encrypted flag</a> and prove you can crack more than just dad jokes!</p>
+        </div>
+    </div>
+
+    <div class="info-box">
+        <h3><i class="fas fa-info-circle"></i> Challenge Overview</h3>
+        <p>Our cutting-edge cryptosystem is secured by the power of dad jokes and questionable mathematics. 
+        Can you factor out the humor and find the flag?</p>
+    </div>
+</div>
+{% endblock %}

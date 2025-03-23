@@ -1,0 +1,1 @@
+GrizzCTF{Graham_Cracked!}

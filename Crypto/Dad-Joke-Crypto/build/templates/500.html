@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}500 - Server Error{% endblock %}
+
+{% block page_title %}500: Internal Server Error{% endblock %}
+
+{% block content %}
+<div class="error-section">
+    <div class="error-icon">
+        <i class="fas fa-bug fa-5x"></i>
+    </div>
+    
+    <div class="error-message">
+        <h2>We Made a Joke So Bad, It Broke the Server!</h2>
+        <p>Our developers are currently telling it better jokes to cheer it up.</p>
+    </div>
+
+    <div class="error-actions">
+        <a href="/" class="home-button">
+            <i class="fas fa-home"></i> Try Again from Home
+        </a>
+    </div>
+</div>
+{% endblock %}

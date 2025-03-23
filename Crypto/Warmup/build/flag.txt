@@ -1,0 +1,1 @@
+GrizzCTF{noice_lil_ord_warmup}
