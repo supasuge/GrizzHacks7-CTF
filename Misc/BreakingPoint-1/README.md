@@ -4,6 +4,15 @@
 - **difficulty:** {Easy, Medium, Hard, Expert}
 
 ## Description:
+Python sanbox challenge.
+
+### Explaination
+Because `blacklist` is defined as a global variable within the `main()` function, we are able to clear it's contents so that there is no longer a blacklist limiting our moves. 
+```python
+blacklist.clear()
+print(open("flag.txt").read())
+```
+
 
 ## Flag format:
 
