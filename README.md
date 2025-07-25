@@ -1,6 +1,7 @@
 # GrizzCTF 2025
 
 - Made by CyberOU, a Cybersecurity club @Oakland University
+ - Majority of challenges contributed by [supasuge](https://github.com/supasuge) aside from OSINT, and some MISC.
 - This repository contains various categories of Capture The Flag (CTF) challenges. Each category has multiple challenges with varying levels of difficulty.
 
 ---
