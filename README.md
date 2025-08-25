@@ -1,7 +1,8 @@
 # GrizzCTF 2025
 
-- Made by CyberOU, a Cybersecurity club @Oakland University
-  - All challenges aside from the OSINT category contributed from [supasuge](https://github.com/supasuge) | [Evan Pardon](https://linkedin.com/in/evan-pardon) 
+- Made by CyberOU, a Cybersecurity club @Oakland University. While I was still a student at OCC during this time, I had the privilege of partaking in the joint housing program recently started by OU/OCC. This allowed me to stay on campus in the student dorms and as a result, I was allowed and encouraged to partake in various student clubs/activities.
+  - I like to stay busy and learn new things, so I took the opportunity without hesitation when I was asked to help plan/organize the CTF for GrizzHacks as well as creating the challenges.
+  - Note: The challenge's in this repository were created by me, anything else I did not include in this repository specifically (OSINT category).
 - This repository contains various categories of Capture The Flag (CTF) challenges. Each category has multiple challenges with varying levels of difficulty.
 
 ---
